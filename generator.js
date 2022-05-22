@@ -13,6 +13,7 @@ function generatePassword() {
 
   // create a collection to store things user picked up
   let collection = []
+  collection = collection.concat(lowerCaseLetters.split(''), upperCaseLetters.split(''), numbers.split(''))
 
   // start generating password
   let password = ''

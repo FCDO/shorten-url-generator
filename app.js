@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const generatePassword = require('./generator')
 const exphbs = require('express-handlebars');
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
