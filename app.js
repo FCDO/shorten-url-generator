@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 
+const exphbs = require('express-handlebars');
+
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) //設定連線至mongodb
@@ -18,10 +23,12 @@ db.once('open', () => {
 })
 
 
+
+
 //setting home page route
 
 app.get('/', (req, res) => {
-  res.send('start')
+  res.render('index')
 })
 
 
