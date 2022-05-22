@@ -31,10 +31,6 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/shorten', (req, res) => {
-  res.render('show')
-})
-
 
 
 
