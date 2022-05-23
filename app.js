@@ -45,6 +45,9 @@ app.get('/shorten', (req, res) => {
 
 app.post('/shorten', (req, res) => {
   const raw_url = req.body.rawURL
+  if (!raw_url) {
+    res.redirect('/')
+  }
   const url_code = generatePassword()
   const shorten_url = `http://localhost:3000/${url_code
     }`
