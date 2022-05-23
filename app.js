@@ -37,6 +37,11 @@ app.get('/', (req, res) => {
 
   res.render('index')
 })
+app.get('/shorten', (req, res) => {
+
+  res.redirect('/')
+})
+
 
 app.post('/shorten', (req, res) => {
   const raw_url = req.body.rawURL
