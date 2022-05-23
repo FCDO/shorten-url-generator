@@ -4,7 +4,7 @@
       <h1>Success!Please use this link:</h1>
       <form action="/shorten" method="GET">
         <input type="url" class="form-control" value={{shorten_url}} id="url">
-        <button type="copy" class="btn btn-primary">Copy</button>
+        <button type="copy" class="btn btn-primary" onclick="copyLink()">Copy</button>
       </form>
 
     </div>
@@ -12,3 +12,18 @@
   </div>
 
 </div>
+<script>
+  function copyLink() {
+
+    let copyText = document.getElementById("url").value
+    navigator.clipboard.writeText(copyText)
+      .then(() => {
+        console.log('內容已複製')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    document.execCommand('copy')
+    console.log(copyText)
+  }
+</script>
