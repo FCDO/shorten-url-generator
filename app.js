@@ -52,6 +52,14 @@ app.post('/shorten', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/:code', (req, res) => {
+  const code = req.params.code
+  return URL.find({ url_code: code })
+    .lean()
+    .then(url => res.redirect(url[0].origin_url))
+    .catch(error => console.log(error))
+})
+
 
 
 
